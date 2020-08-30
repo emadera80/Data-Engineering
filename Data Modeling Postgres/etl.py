@@ -82,7 +82,7 @@ def process_data(cur, conn, filepath, func):
 
 
 def main():
-    conn = psycopg2.connect("host=127.0.0.1 dbname=sparkyfi user=postgres password=Yankees1")
+    conn = psycopg2.connect("host=127.0.0.1 port=5433 dbname=sparkyfidb user=manny password=Yankees1")
     cur = conn.cursor()
 
     process_data(cur, conn, filepath='data/song_data', func=process_song_file)
