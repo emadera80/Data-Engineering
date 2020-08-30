@@ -59,3 +59,4 @@ time - timestamps of records in songplays broken down into specific units
 Author: Enmanuel Madera 
 date: 8/28/2020
 Follow me on LinkedIn
+Facebook and Instagram
