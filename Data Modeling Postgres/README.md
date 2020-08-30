@@ -13,7 +13,7 @@ This is the my project submission for the Data Engineering. This project is buil
 
 Sparkify is a startup music app company that have been collecting data on songs and user activity in their app, currently the analytics team are interested in analyzing the data to understand their user base.  At the present tme there the analytical team dont have a good or easy way to query the data which redise in json format.  
 
-In this project, I'll apply what I've learned on data modeling with Postgres and build an ETL pipeline using Python.
+In this project I'll apply what I've learned on data modeling with Postgres and build an ETL pipeline using Python.
 
 ### Data
 Song datasets: all json files are nested in subdirectories under /data/song_data. A sample of this files is:
@@ -58,3 +58,4 @@ time - timestamps of records in songplays broken down into specific units
 
 Author: Enmanuel Madera 
 date: 8/28/2020
+Follow me on LinkedIn
