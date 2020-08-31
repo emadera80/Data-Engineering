@@ -15,3 +15,5 @@ Dimension Tables:
 
 Fact Table: 
 1. FactImpact
+
+Below is a picture of the data Conceptual Data Model. 
