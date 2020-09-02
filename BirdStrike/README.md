@@ -18,6 +18,6 @@ Fact Table:
 
 Below is a picture of the data Conceptual Data Model. 
 
-<img src="img/conceptual_model.png" />
+<img src="img\conceptual_model.png" />
 
 ![img][conceptual_model.png]
