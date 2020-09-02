@@ -26,6 +26,6 @@ Below is a picture of the Conceptual Data Model.
 
 Below is the logical data model in progress that shows the releationship between the dim tables and fact table. 
 
-<img src="img\ logical_model.PNG" />
+<img src="img\logical_model.PNG" />
 
 
