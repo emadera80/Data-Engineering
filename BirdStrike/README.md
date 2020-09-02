@@ -20,8 +20,12 @@ Dimension Tables:
 Fact Table: 
 1. FactImpact
 
-Below is a picture of the data Conceptual Data Model. 
+Below is a picture of the Conceptual Data Model. 
 
 <img src="img\conceptual_model.PNG" />
 
-![img][conceptual_model.png]
+Below is the logical data model in progress that shows the releationship between the dim tables and fact table. 
+
+<img src="img\ logical_model.PNG" />
+
+
