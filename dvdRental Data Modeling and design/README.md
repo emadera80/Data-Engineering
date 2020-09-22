@@ -8,3 +8,4 @@ From a fictitous standpoint if a manager would like to view a report of top 10 g
 
 Below is the data model for the dvdrental data base.  
 
+<img src = "img/dvd rental dm.png" />
