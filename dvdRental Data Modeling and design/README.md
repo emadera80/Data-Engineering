@@ -9,3 +9,7 @@ From a fictitous standpoint if a manager would like to view a report of top 10 g
 Below is the data model for the dvdrental data base.  
 
 <img src = "img/dvd rental dm.png" />
+
+After doing some basic analysis and basic querying i have determine the following data model that can fit for analysis and analytics. 
+
+<img src="img/dvd rental dw.png" />
