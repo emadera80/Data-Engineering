@@ -18,3 +18,9 @@ Connect to the cluster
 Connect to S3 
 Design a data model 
 Copy the data from S3 to the redshift model.   
+
+From a Table design I used a Distrbuted designed.  In Which the Line order table took about 10 mins to load which granted it took long due to the amount of data.  But the querying process should be quicker 
+
+At the of this demonstration I will be cleaning up the resources in the AMAZON AWS so I wont incur extra charges.    
+
+See notebook.
