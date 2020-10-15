@@ -16,3 +16,7 @@ from pyspark.sql import SparkSession \
 import pandas as pd \
 import numpy as np \
 
+We will also use pyspark.sql functions such as isna, count, when, col, desc, udf, sort_array, as, avg \
+
+Since I am very familiar with sql query langeuage i will be using the spark sql api for this.  
+
