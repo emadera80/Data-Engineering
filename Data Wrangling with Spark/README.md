@@ -10,9 +10,9 @@ The data set I am using a rather small is the FAA bird strike dataset that conta
 
 1.Import all necessary packages: 
 
-Import pyspark 
-from pyspark import SparkConf
-from pyspark.sql import SparkSession 
-import pandas as pd 
-import numpy as np 
+Import pyspark \
+from pyspark import SparkConf \
+from pyspark.sql import SparkSession \
+import pandas as pd \
+import numpy as np \
 
