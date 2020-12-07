@@ -95,12 +95,87 @@ pat2 = ndjson.loads(pat1.decode('utf-8'))
 ```
 The above ran and read successfully with no errors.  
 
+<b>Problem 2</b>
+
+Since the ndjson_loads() function places the file read into a list of list the patient name and first name were not in the same level for slicing for example: 
+
+created a for loop statement to loop through the list of json code.   in the iteration process i had to slice the data to get information id was straight forward to pull since the id lives in the id field of the json structure. 
+
+for first name and last name in the other had i had to slice further therefore when I was slicing as name[name['given]] as an example it was giving me a key error.  
+
+<b>Solution 2</b>
+
+To fix the key error message I sliced further since I was pulling form a list of list: 
+
+```
+name['name'][0]['given'][0]==first_name
+name['name'][0]['family']==last_name
+```
+
+Using the above snippet I was able to solve the key errors i was encountering.
+
+<b>Problem 3</b>
+
+when counting the id in each resource type file i was looking for ['subject']['reference'] and notice that only a few file return counts. 
+
+<b>Solution 3</b>
+
+I further investigated the resource files and notice that the patient id is set in difference fileds for example ['patient]['reference'] and ['target'] which I loop through to count id.
+
+```
+if item['resourceType'] == new:
+    if 'patient' in item: 
+        if id in item['patient']['reference']: 
+            ls.append(new)
+        elif 'subject' in item: 
+            if id in item['subject']['reference']:
+                ls.append(new)
+        elif 'target' in item: 
+            for x in item['target']: 
+                if id in x['reference']:
+                    ls.append(new)
+```
 
 
-### Program detail
+<b>Other Potential Problem with no Sulotion</b>
+
+From the email recieved with the requirement document and the screenshot stating the expected results this program is not counting for Location, Organization, Practitioner, PractitionerRole.  
+
+The program is counting on ResourceType and ID therefore the patient ID is not listed on Location, Organization, Practitioner and PractitionerRole.  I review the json entries in those file looking for patient information but did not found any.  
+
+
+
+### Program Structure
 
 The program have two functions: 
 
-get_patient() will get the patient information from the patient file we then store the patient first name, last name and patient id into variables and use them in the return statement to be ble to use them in the pat_info() 
+get_patient(): This program will get the patient id, firstname and lastname from the Patient.ndjson file.   
 
-To be able to get patient informaiton user must run the py program with the following variables --firstname and -- lastname or --patient_id.  The program will search for the the inputted information in the patient file and stored the findings in variable in returned them.  
+pat_info(): this funciton evaluate the parameters passed on the get_patient the get_patient then passes the values found in the patient.ndjson. the functions then look for the patient id and counts the number of instance the id is preset in each resource file.  
+
+
+### Running the program 
+
+To run the program in command line you have th option to run it with the patient id or patient name and last name
+
+Command line option 1: 
+
+```
+resource.py --firstname Cleo27 --lastname Bode78
+```
+
+Comand line option 2: 
+```
+resource.py --patient_id d13874ec-22ea-46ed-a55c-1fd75ef56a58
+```
+
+Running the program in jupyter notebook use the following command 
+
+```
+%run resource.py --patient_id d13874ec-22ea-46ed-a55c-1fd75ef56a58
+```
+or 
+
+```
+%run resource.py --firstname Cleo27 --lastname Bode78
+```

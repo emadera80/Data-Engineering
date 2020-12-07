@@ -19,8 +19,6 @@ s3 = boto3.resource('s3',
     aws_secret_access_key = SECRET
 )
 
-patient_id = None
-
 def get_patient(id): 
 
     """
@@ -89,6 +87,7 @@ def pat_info(patient_id):
 
     final = pd.DataFrame(list(zip(a,b)), columns = ['RESOURCE_TYPE', 'COUNT'])
     final_df = final.sort_values(['COUNT'], ascending=False)
+    final_df = final_df.to_string(index=False)
     return final_df, fn, ln
 
 if __name__=="__main__": 
