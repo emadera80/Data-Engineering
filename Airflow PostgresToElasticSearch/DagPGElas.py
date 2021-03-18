@@ -11,14 +11,14 @@ from elasticsearch import Elasticsearch
 
 
 def queryPostgres(): 
-    conn = pg.connect("host=127.0.0.1 port=5433 dbname=maderaanalytics user=user password=password")
+    conn = pg.connect("host=127.0.0.1 port=5432 dbname=maderaanalytics user=manny password=Yankees1")
     df=pd.read_sql("select name, city from users", conn)
-    df.to_csv('/mnt/d/OneDrive/DataScience/Data Engineer Course/Projects/Data-Engineering/Airflow PostgresToElasticsearch/postgresdata.csv')
+    df.to_csv('/mnt/c/Users/Enmanuel Madera/OneDrive/DataScience/Data Engineer Course/Projects/Data-Engineering/Airflow PostgresToElasticsearch/postgresdata.csv')
     print("------------Data Saved----------------")
 
 def insertElastic(): 
     es = Elasticsearch()
-    df = pd.read_csv('/mnt/d/OneDrive/DataScience/Data Engineer Course/Projects/Data-Engineering/Airflow PostgresToElasticsearch/postgresdata.csv')
+    df = pd.read_csv('/mnt/c/Users/Enmanuel Madera/OneDrive/DataScience/Data Engineer Course/Projects/Data-Engineering/Airflow PostgresToElasticsearch/postgresdata.csv')
     for i, r in df.iterrows(): 
         doc = r.to_json()
         res = es.index(index="fromPostgres", doc_type="doc", body=doc)
@@ -39,4 +39,4 @@ with DAG('PGtoElastic',
 
     insertData = PythonOperator(task_id='insertElastic', python_callable=insertElastic)
 
-getData >> insertElastic
+getData >> insertData

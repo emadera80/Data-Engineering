@@ -21,20 +21,20 @@ def getdata():
         df.to_csv('/mnt/d/OneDrive/DataScience/Data Engineer Course/Projects/Data-Engineering/Airflow PostgresToElasticsearch/data1.csv')
 
 def cleanData(): 
-    df = pd.read_csv('/mnt/d/OneDrive/DataScience/Data Engineer Course/Projects/Data-Engineering/Airflow PostgresToElasticsearch/data1.csv')
+    df = pd.read_csv('/mnt/c/Users/Enmanuel Madera/OneDrive/DataScience/Data Engineer Course/Projects/Data-Engineering/Airflow PostgresToElasticsearch/data1.csv')
     final = df[['PROPERTYCITY', 'PROPERTYSTATE', 'PROPERTYZIP', 'MUNIDESC', 'SCHOOLDESC',  'SALEDATE','PRICE', 'SALECODE', 'SALEDESC', 'INSTRTYPDESC']]
     final['PRICE'] = final['PRICE'].fillna(0)
     final['PROPERTYZIP'] = final['PROPERTYZIP'].fillna(0)
-    final.to_csv('/mnt/d/OneDrive/DataScience/Data Engineer Course/Projects/Data-Engineering/Airflow PostgresToElasticsearch/final.csv')
+    final.to_csv('/mnt/c/Users/Enmanuel Madera/OneDrive/DataScience/Data Engineer Course/Projects/Data-Engineering/Airflow PostgresToElasticsearch/final.csv')
 
 def loadData(): 
-    final = pd.read_csv('/mnt/d/OneDrive/DataScience/Data Engineer Course/Projects/Data-Engineering/Airflow PostgresToElasticsearch/final.csv')
+    final = pd.read_csv('/mnt/c/Users/Enmanuel Madera/OneDrive/DataScience/Data Engineer Course/Projects/Data-Engineering/Airflow PostgresToElasticsearch/final.csv')
     # Initialize a string buffer
     sio = StringIO()
     sio.write(final.to_csv(index=None, header=None, sep='\t'))  # Write the Pandas DataFrame as a csv to the buffer
     sio.seek(0)  # Be sure to reset the position to the start of the stream
 
-    engine = create_engine('postgres+psycopg2://user:pasword@127.0.0.1:5433/maderaanalytics')
+    engine = create_engine('postgres+psycopg2://manny:Yankees1@127.0.0.1:5433/maderaanalytics')
 
     final.head(0).to_sql('alleghenyproperty', engine, if_exists='replace', index=False)
 
@@ -44,8 +44,8 @@ def loadData():
     conn.commit()
 
 def deleteFiles(): 
-    os.remove('/mnt/d/OneDrive/DataScience/Data Engineer Course/Projects/Data-Engineering/Airflow PostgresToElasticsearch/final.csv')
-    os.remove('/mnt/d/OneDrive/DataScience/Data Engineer Course/Projects/Data-Engineering/Airflow PostgresToElasticsearch/data1.csv')
+    os.remove('/mnt/c/Users/Enmanuel Madera/OneDrive/DataScience/Data Engineer Course/Projects/Data-Engineering/Airflow PostgresToElasticsearch/final.csv')
+    os.remove('/mnt/c/Users/Enmanuel Madera/OneDrive/DataScience/Data Engineer Course/Projects/Data-Engineering/Airflow PostgresToElasticsearch/data1.csv')
 
 default_args = {
     'owner':'mannymadera', 

@@ -15,7 +15,7 @@ data_for_db = tuple(data)
 
 print(data_for_db)
 
-conn = pg.connect("host=127.0.0.1 port=5433 dbname=maderaanalytics user=user password=password")
+conn = pg.connect("host=127.0.0.1 port=5432 dbname=maderaanalytics user=manny password=Yankees1")
 cur = conn.cursor()
 
 cur.execute("""
